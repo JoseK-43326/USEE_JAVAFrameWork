@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<template>
+	<name>entity</name>
+	<filePath>${preFix}_Modules/src/main/java/${packageName}/modules/${moduleName}/entity</filePath>
+	<fileName>${ClassName}.java</fileName>
+	<content><![CDATA[
+
+package ${packageName}.modules.${moduleName}.entity;
+
+import com.useeinfo.framework.extend.entity.DataEntity;
+import com.useeinfo.framework.sugar.tools.CommonSugar;
+import net.sf.json.JSONObject;
+import org.hibernate.annotations.GenericGenerator;
+import org.hibernate.annotations.Parameter;
+
+import javax.persistence.*;
+
+/**
+ * Author: AutoGenerate  Date: ${date}
+ */
+@Entity
+@Table(name = "${table.namePre}_${table.name}")
+@GenericGenerator(name = "${table.nameU}_GEN", strategy = "enhanced-table",
+		parameters = {
+				@Parameter(name = "table_name", value = "table_generator"),
+				@Parameter(name = "value_column_name", value = "next"),
+				@Parameter(name = "segment_column_name", value = "segment_name"),
+				@Parameter(name = "segment_value", value = "${table.name}_id"),
+				@Parameter(name = "initial_value", value = "1000"),
+				@Parameter(name = "increment_size", value = "10"),
+				@Parameter(name = "optimizer", value = "pooled-lo")
+		})
+public class ${ClassName} extends DataEntity<${ClassName}> {
+
+	private Long id;
+<#list table.columnList as c>
+    private ${c.simpleJavaType} ${c.simpleJavaField}; //${c.comments}
+</#list>
+
+	@Id
+	@GeneratedValue(generator = "${table.nameU}_GEN")
+	@Column(name = "id")
+	public Long getId() {
+		return id;
+	}
+	public void setId(Long id) {
+		this.id = id;
+	}
+<#list table.columnList as c>
+
+	/**
+	 * ${c.comments}
+	 */
+	@Column(name = "${c.simpleJavaField}")
+	public ${c.simpleJavaType} get${c.simpleJavaField?cap_first}() {
+		return ${c.simpleJavaField};
+	}
+	public void set${c.simpleJavaField?cap_first}(String ${c.simpleJavaField}) {
+		this.${c.simpleJavaField} = ${c.simpleJavaField};
+	}
+</#list>
+
+	@Override
+	public JSONObject toJSONObject() {
+		JSONObject jsonObject = new JSONObject();
+
+		<#list table.columnList as c>
+		jsonObject.put("${c.simpleJavaField}", CommonSugar.getTypedDefault("get${c.simpleJavaField?cap_first}", ""));
+		</#list>
+
+		return jsonObject;
+	}
+}
+
+]]>
+	</content>
+</template>

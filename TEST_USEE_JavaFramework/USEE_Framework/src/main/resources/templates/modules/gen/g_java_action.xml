@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<template>
+	<name>action</name>
+	<filePath>${preFix}_WebEntry/src/main/java/${packageName}/${moduleName}/web/${subModuleName}</filePath>
+	<fileName>${ClassName}Action.java</fileName>
+	<content><![CDATA[
+
+package ${packageName}
+
+<#list table.columnList as c>
+    private ${c.simpleJavaType} ${c.name}
+</#list>
+
+]]>
+	</content>
+</template>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<template>
+	<name>biz</name>
+	<filePath>${preFix}_Modules/src/main/java/${packageName}/modules/${moduleName}/biz</filePath>
+	<fileName>${ClassName}Biz.java</fileName>
+	<content><![CDATA[
+
+package ${packageName}.modules.${moduleName}.biz;
+
+import com.useeinfo.framework.extend.biz.BaseBiz;
+import org.springframework.stereotype.Service;
+
+/**
+ * Author: AutoGenerate  Date: ${date}
+ */
+@Service("${className}Biz")
+public class ${ClassName}Biz extends BaseBiz {
+}
+
+]]>
+	</content>
+</template>

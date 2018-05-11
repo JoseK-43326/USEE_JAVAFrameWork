@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.useeinfo.demo</groupId>
+    <artifactId>USEE_JavaFramework</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <modules>
+        <module>DEMO_Common</module>
+        <module>DEMO_Modules</module>
+        <module>DEMO_Refer</module>
+        <module>DEMO_WebEntry</module>
+        <module>USEE_Framework</module>
+    </modules>
+    <packaging>pom</packaging>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <argLine>-Dfile.encoding=UTF-8</argLine>
+        <spring.version>4.2.5.RELEASE</spring.version>
+        <spring.security.version>4.0.4.RELEASE</spring.security.version>
+        <slf4j.version>1.7.5</slf4j.version>
+        <log4j.version>1.2.17</log4j.version>
+        <hibernate.version>4.2.8.Final</hibernate.version>
+        <javamail.version>1.5.1</javamail.version>
+        <servlet.version>3.1</servlet.version>
+        <jsp.version>2.2</jsp.version>
+        <jstl.version>1.2</jstl.version>
+        <mysql.version>5.1.34</mysql.version>
+        <json.version>2.4</json.version>
+        <jackson.version>1.9.12</jackson.version>
+        <fasterxml.jackson.version>2.3.1</fasterxml.jackson.version>
+        <poi.version>3.9</poi.version>
+        <jexcelapi.version>2.4.2</jexcelapi.version>
+    </properties>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>2.4</version>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                    <encoding>UTF-8</encoding>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+    <dependencyManagement>
+        <dependencies>
+
+
+        </dependencies>
+    </dependencyManagement>
+
+</project>
